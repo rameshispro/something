@@ -1,7 +1,7 @@
 
 
 module "s3" {
-  source      = "./modules/S3"
+  source      = "./S3"
   for_each    = var.bucket
   bucket_name = each.value.bucket_name
 
@@ -12,7 +12,7 @@ module "s3" {
 
 
 module "iam" {
-  source     = "./modules/iam"
+  source     = "./iam"
   role       = var.role_name
   depends_on = [module.s3]
 
@@ -20,7 +20,7 @@ module "iam" {
 
 
 module "vpc" {
-  source             = "./modules/VPC"
+  source             = "./VPC"
   cidr               = var.cidr
   vpc_name           = var.vpc_name
   public_subnet_cidr = var.public_subnet_cidr
@@ -28,7 +28,7 @@ module "vpc" {
 }
 
 module "ec2" {
-  source        = "./modules/EC2"
+  source        = "./EC2"
   subnetid      = module.vpc.public_subnet_id
   ami           = "ami-08ebc9e780cde07dd"
   instance_type = "t2.micro"
