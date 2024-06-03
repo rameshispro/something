@@ -3,18 +3,28 @@
 #bucket    = "awsnareshitbucketname"
 bucket = {
   bucket1 = {
-    bucket_name = "myjpjjnbc"
+    bucket_name = "myjpc"
 
   },
   bucket2 = {
-    bucket_name = "myjpkjhc2"
+    bucket_name = "myjpc2"
 
   },
   bucket3 = {
-    bucket_name = "mygfdjpc3"
+    bucket_name = "myjpc3"
 
   }
 }
 
 
-## iam values 
+## iam values
+role_name = "testing"
+
+## vpc values
+
+cidr     = "10.0.0.0/16"
+vpc_name = "myvpc"
+
+## subnet values
+public_subnet_cidr = "10.0.1.0/24"
+public_subnet_name = "public_subnet"
